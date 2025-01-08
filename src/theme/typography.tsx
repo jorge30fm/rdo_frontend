@@ -1,0 +1,85 @@
+// create-typography.ts
+import { TypographyOptions } from "@mui/material/styles/createTypography";
+import colors from "./colors";
+export const createTypography = (): TypographyOptions => {
+	return {
+		fontFamily: '"Space Grotesk", "Archivo Black", sans-serif',
+		fontWeightLight: 400,
+		fontWeightRegular: 600,
+		fontWeightMedium: 600,
+		h1: {
+			fontSize: "4rem",
+			fontWeight: 400,
+			fontFamily: '"Archivo Black", sans-serif',
+			lineHeight: "1.2em",
+			letterSpacing: "-0.02em",
+			textTransform: "uppercase",
+			color: colors.dark,
+		},
+		h2: {
+			fontSize: "2.75rem",
+			fontWeight: 400,
+			fontFamily: '"Archivo Black", sans-serif',
+			lineHeight: "1.2em",
+			letterSpacing: "-0.02em",
+			textTransform: "uppercase",
+			color: colors.dark,
+		},
+		h3: {
+			fontSize: "2.125rem",
+			fontWeight: 400,
+			fontFamily: '"Archivo Black", sans-serif',
+			lineHeight: "1.2em",
+			letterSpacing: "-0.02em",
+			textTransform: "uppercase",
+			color: colors.dark,
+		},
+		h4: {
+			fontSize: "1.5rem",
+			fontWeight: 400,
+			fontFamily: '"Archivo Black", sans-serif',
+			lineHeight: "1.2em",
+			letterSpacing: "-0.02em",
+			textTransform: "uppercase",
+			color: colors.dark,
+		},
+		body1: {
+			fontSize: "1rem",
+			fontWeight: 600,
+			fontFamily: '"Space Grotesk", sans-serif',
+			lineHeight: "1.5em",
+			letterSpacing: "0em",
+			textTransform: "none",
+			color: colors.dark,
+		},
+		body2: {
+			fontSize: "0.875rem",
+			fontWeight: 600,
+			fontFamily: '"Space Grotesk", sans-serif',
+			lineHeight: "1.5em",
+			letterSpacing: "0em",
+			textTransform: "none",
+			color: colors.dark,
+		},
+		button: {
+			fontSize: "0.875rem",
+			fontWeight: 600,
+			fontFamily: '"Space Grotesk", sans-serif',
+			lineHeight: "1.5em",
+			textTransform: "uppercase",
+		},
+		caption: {
+			fontSize: "0.75rem",
+			fontWeight: 600,
+			fontFamily: '"Space Grotesk", sans-serif',
+			lineHeight: "1.5em",
+		},
+		overline: {
+			fontSize: "0.75rem",
+			fontWeight: 600,
+			fontFamily: '"Space Grotesk", sans-serif',
+			lineHeight: "1.5em",
+			textTransform: "uppercase",
+		},
+	};
+};
