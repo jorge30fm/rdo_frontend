@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid2";
 import Image from "next/image";
 import { alpha } from "@mui/material";
 import colors from "@/theme/colors";
+import Link from "next/link";
 
 interface HomeHeroProps {
 	title: string;
@@ -65,20 +66,30 @@ const HomeHero = ({ title, subtitle, text, image }: HomeHeroProps) => {
 							gap: 4,
 						}}
 					>
-						<Button
-							variant="contained"
-							color="primary"
-							size="large"
+						<Link
+							href="/Shop"
+							passHref
 						>
-							Find Art For You
-						</Button>
-						<Button
-							variant="outlined"
-							color="primary"
-							size="large"
+							<Button
+								variant="contained"
+								color="primary"
+								size="large"
+							>
+								Find Art For You
+							</Button>
+						</Link>
+						<Link
+							href="/Contact"
+							passHref
 						>
-							INQUIRE
-						</Button>
+							<Button
+								variant="outlined"
+								color="primary"
+								size="large"
+							>
+								INQUIRE
+							</Button>
+						</Link>
 					</Box>
 				</Box>
 			</Grid>
