@@ -1,3 +1,4 @@
+"use client";
 import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { Navigation, Logo } from "../Header/elements";
@@ -11,9 +12,7 @@ const Footer = () => {
 				flexDirection: "column",
 				padding: "1rem 4rem  2rem 4rem",
 				gap: 10,
-                position: "absolute",
-                bottom: 0,
-                width: "100%",
+				
 			}}
 		>
 			<Grid
