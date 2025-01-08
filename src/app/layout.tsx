@@ -24,6 +24,10 @@ export default function RootLayout({
 					href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Archivo+Black&display=swap"
 					rel="stylesheet"
 				/>
+				<link
+					rel="icon"
+					href="/favicon.ico"
+				/>
 			</head>
 
 			<body

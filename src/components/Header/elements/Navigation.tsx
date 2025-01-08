@@ -3,10 +3,7 @@ import { Box } from "@mui/material";
 import { NavButton } from "./index";
 
 const navigation = [
-	{ text: "Home", href: "/" },
-
 	{ text: "About", href: "/About" },
-
 	{ text: "Gallery", href: "/Gallery" },
 	{ text: "Commissions", href: "/Commissions" },
 	{ text: "Live Paintings", href: "/LivePaintings" },
@@ -14,12 +11,17 @@ const navigation = [
 	{ text: "Contact", href: "/Contact" },
 ];
 
-const Navigation = () => {
+const Navigation = ({
+	direction = "row",
+}: {
+	direction?: "row" | "column";
+}) => {
 	return (
 		<Box
 			sx={{
 				display: "flex",
-				gap: 1,
+				flexDirection: direction,
+				gap: 2,
 				justifyContent: "center",
 			}}
 		>

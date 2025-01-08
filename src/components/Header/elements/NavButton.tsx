@@ -35,7 +35,7 @@ const NavButton = ({ text, href }: NavButtonProps) => {
 						},
 					}}
 				>
-					<Typography sx={{ color: isActive ? colors.main : colors.dark }}>
+					<Typography variant="body2" sx={{ color: isActive ? colors.main : colors.dark }}>
 						{text}
 					</Typography>
 				</Button>
