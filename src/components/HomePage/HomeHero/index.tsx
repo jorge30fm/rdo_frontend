@@ -24,9 +24,9 @@ const HomeHero = ({ title, subtitle, text, image }: HomeHeroProps) => {
 					<Image
 						src={image}
 						alt={title}
-						layout="responsive"
 						width={500}
 						height={500}
+						priority
 					/>
 				</Box>
 			</Grid>
