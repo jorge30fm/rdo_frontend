@@ -1,3 +1,4 @@
+"use client";
 import { Header } from "@/components";
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
