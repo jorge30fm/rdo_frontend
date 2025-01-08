@@ -5,10 +5,12 @@ import { NextAppDirEmotionCacheProvider } from "./EmotionCache";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTypography } from "./typography";
 import createComponents from "./components";
+import palette from "./palette";
 
 const themeOptions: ThemeOptions = {
 	typography: createTypography(),
 	components: createComponents(),
+	palette: palette
 };
 
 const theme = createTheme(themeOptions);

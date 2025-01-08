@@ -1,11 +1,12 @@
 "use client";
-import { Header } from "@/components";
+import { Header, Footer } from "@/components";
 
 const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	return (
 		<div>
 			<Header />
 			{children}
+			<Footer/>
 		</div>
 	);
 };

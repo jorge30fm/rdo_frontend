@@ -27,15 +27,17 @@ const navigation = [
 
 const Navigation = ({
 	direction = "row",
+	dense = false
 }: {
 	direction?: "row" | "column";
+	dense?: boolean;
 }) => {
 	return (
 		<Box
 			sx={{
 				display: "flex",
 				flexDirection: direction,
-				gap: 2,
+				gap: dense ? 0 : 2,
 				justifyContent: "center",
 			}}
 		>

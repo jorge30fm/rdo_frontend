@@ -45,6 +45,7 @@ const NavButton = ({ text, href, menuOptions }: NavButtonProps) => {
 							backgroundColor: isActive ? colors.dark : alpha(colors.dark, 0.5),
 							color: colors.main,
 						},
+						width: "100%",
 					}}
 					onClick={handleMenuOpen}
 				>
@@ -80,6 +81,7 @@ const NavButton = ({ text, href, menuOptions }: NavButtonProps) => {
 									: alpha(colors.dark, 0.5),
 								color: "white",
 							},
+							width: "100%",
 						}}
 					>
 						<Typography

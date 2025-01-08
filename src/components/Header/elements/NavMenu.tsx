@@ -24,7 +24,6 @@ const NavMenu: FC<NavMenuProps> = ({ open, anchorEl, closeMenu, items }) => {
 					border: `1px solid ${colors.dark}`,
 				},
 			}}
-			
 		>
 			{items.map((item, index) => (
 				<Link
@@ -33,7 +32,10 @@ const NavMenu: FC<NavMenuProps> = ({ open, anchorEl, closeMenu, items }) => {
 					passHref
 					style={{ textDecoration: "none" }}
 				>
-					<MenuItem key={index}>
+					<MenuItem
+						key={index}
+						sx={{ "&:hover": { backgroundColor: "rgba(0,0,0,.1)" } }}
+					>
 						<Typography
 							variant="body2"
 							sx={{
