@@ -1,7 +1,12 @@
 import { Typography, Button, Box } from "@mui/material";
 import Link from "next/link";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 const Logo = () => {
+	const theme = useTheme();
+	const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
 	return (
 		<Link
 			href="/"
@@ -24,7 +29,7 @@ const Logo = () => {
 						cursor: "pointer", // Adds a pointer cursor for better UX
 					}}
 				>
-					Roldan Vaguez Studio
+					{isMobile ? "RVS" : "Roldan Vaguez Studio"}
 				</Typography>
 			</Button>
 		</Link>

@@ -4,8 +4,22 @@ import { NavButton } from "./index";
 
 const navigation = [
 	{ text: "About", href: "/About" },
-	{ text: "Gallery", href: "/Gallery" },
-	{ text: "Commissions", href: "/Commissions" },
+	{
+		text: "Gallery",
+		href: "/Gallery",
+		menuOptions: [
+			{ text: "Live Wedding Paintings", href: "/Gallery/LiveWeddingPaintings" },
+			{ text: "Father-Daughter Walk", href: "/Gallery/FatherDaughterWalk" },
+			{ text: "After the Wedding", href: "/Gallery/AfterTheWedding" },
+			{ text: "Traditional Portraits", href: "/Gallery/TraditionalPortraits" },
+			{ text: "Commission Art", href: "/Gallery/CommissionArt" },
+			{ text: "Pet Portraits", href: "/Gallery/PetPortraits" },
+		],
+	},
+	{
+		text: "Commissions",
+		href: "/Commissions",
+	},
 	{ text: "Live Paintings", href: "/LivePaintings" },
 	{ text: "Shop", href: "/Shop" },
 	{ text: "Contact", href: "/Contact" },
@@ -30,6 +44,7 @@ const Navigation = ({
 					key={index}
 					text={navItem.text}
 					href={navItem.href}
+					menuOptions={navItem.menuOptions }
 				/>
 			))}
 		</Box>
