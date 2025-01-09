@@ -3,7 +3,7 @@ import { Box, IconButton } from "@mui/material";
 import colors from "../../../theme/colors";
 const CartIcon = () => {
 	return (
-		<Box>
+		<Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
 			<IconButton>
 				<ShoppingCartIcon sx={{ color: colors.accent }} />
 			</IconButton>

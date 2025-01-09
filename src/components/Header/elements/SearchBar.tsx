@@ -9,10 +9,13 @@ import { styled, alpha } from "@mui/material/styles";
 const Search = styled("div")(({ theme }) => ({
 	position: "relative",
 	borderRadius: theme.shape.borderRadius,
-	backgroundColor: alpha(theme.palette.common.white, 0.75),
+	backgroundColor: alpha(theme.palette.common.white, 1),
 	"&:hover": {
-		backgroundColor: alpha(theme.palette.common.white, 1),
+		border: `1px solid ${theme.palette.primary.main}`,
 	},
+	display: "flex",
+	alignItems: "center",
+
 	width: "100%",
 	[theme.breakpoints.up("sm")]: {
 		width: "auto",

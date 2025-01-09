@@ -12,16 +12,16 @@ const Header = () => {
 	const theme = useTheme();
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 	const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
-	console.log(isMobile);
 
 	const toggleDrawer = (open: boolean) => {
 		setIsDrawerOpen(open);
 	};
 
+	// TODO:
 	const handleSearchChange = () => {
 		console.log("search changed");
 	};
-
+	// TODO:
 	const handleSearchSubmit = () => {
 		console.log("search submitted");
 	};
@@ -35,62 +35,90 @@ const Header = () => {
 				padding: "1rem",
 			}}
 		>
-			<Box sx={{ flexGrow: 1 }}>
-				<Logo />
-			</Box>
-			{isMobile ? (
-				<Box sx={{ display: "flex", gap: 2 }}>
-					<CartIcon />
-					<IconButton onClick={() => toggleDrawer(true)}>
+			{/* Show Menu Icon on the left in mobile */}
+			<Box
+				sx={{
+					display: "flex",
+					alignItems: "center",
+					gap: 2,
+				}}
+			>
+				{isMobile && (
+					<IconButton
+						onClick={() => toggleDrawer(true)}
+						sx={{ zIndex: 2 }}
+					>
 						<MenuIcon />
 					</IconButton>
-					<Drawer
-						anchor="right"
-						open={isDrawerOpen}
-						onClose={() => toggleDrawer(false)}
-						PaperProps={{
-							sx: {
-								backgroundColor: colors.main, // Set your desired background color
-								color: colors.textDark, // Optional: Set text color for better contrast
-							},
-						}}
-					>
-						<Box
-							sx={{
-								width: 250,
-								display: "flex",
-								flexDirection: "column",
-								gap: 2,
-								padding: "1rem",
+				)}
+
+				{/* Center Logo in mobile view */}
+				<Box
+					sx={{
+						flexGrow: isMobile ? 1 : 0,
+						display: "flex",
+						justifyContent: isMobile ? "center" : "flex-start",
+					}}
+				>
+					<Logo />
+				</Box>
+			</Box>
+
+			{/* CartIcon always on the right */}
+			<Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+				{isMobile ? (
+					<>
+						<Drawer
+							anchor="left"
+							open={isDrawerOpen}
+							onClose={() => toggleDrawer(false)}
+							PaperProps={{
+								sx: {
+									backgroundColor: colors.main,
+									color: colors.textDark,
+								},
 							}}
 						>
-							<Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-								<IconButton onClick={() => toggleDrawer(false)}>
-									<CloseIcon />
-								</IconButton>
+							<Box
+								sx={{
+									width: 250,
+									display: "flex",
+									flexDirection: "column",
+									gap: 2,
+									padding: "1rem",
+								}}
+							>
+								<Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+									<IconButton onClick={() => toggleDrawer(false)}>
+										<CloseIcon />
+									</IconButton>
+								</Box>
+								<SearchBar
+									variant="navigation"
+									onSearchChange={handleSearchChange}
+									onSearchSubmit={handleSearchSubmit}
+								/>
+								<Navigation direction="column" />
 							</Box>
-							<SearchBar
-								variant="navigation"
-								onSearchChange={handleSearchChange}
-								onSearchSubmit={handleSearchSubmit}
-							/>
-							<Navigation direction="column" />
-						</Box>
-					</Drawer>
-				</Box>
-			) : (
-				<Box sx={{ display: "flex", gap: 2 }}>
-					<Navigation direction="row" />
-					<Box sx={{ display: "flex", gap: 2 }}>
+						</Drawer>
+					</>
+				) : (
+					<>
+						<Navigation direction="row" />
+					</>
+				)}
+				<Box display={"flex"}>
+					{/* do not show searchbar  on mobile */}
+					{!isMobile && (
 						<SearchBar
 							variant="navigation"
 							onSearchChange={handleSearchChange}
 							onSearchSubmit={handleSearchSubmit}
 						/>
-						<CartIcon />
-					</Box>
+					)}
+					<CartIcon />
 				</Box>
-			)}
+			</Box>
 		</header>
 	);
 };

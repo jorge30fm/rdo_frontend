@@ -2,6 +2,7 @@ import { Typography, Button, Box } from "@mui/material";
 import Link from "next/link";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import colors from "@/theme/colors";
 
 const Logo = () => {
 	const theme = useTheme();
@@ -27,6 +28,7 @@ const Logo = () => {
 					sx={{
 						textDecoration: "none", // Removes the underline
 						cursor: "pointer", // Adds a pointer cursor for better UX
+						color: colors.dark
 					}}
 				>
 					{isMobile ? "RVS" : "Roldan Vaguez Studio"}

@@ -34,7 +34,7 @@ const NavButton = ({ text, href, menuOptions }: NavButtonProps) => {
 	};
 
 	return (
-		<Box>
+		<Box display={"flex"} alignItems={"center"} justifyContent={"center"}>
 			{menuOptions ? (
 				<Button
 					sx={{

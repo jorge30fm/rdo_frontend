@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { Navigation, Logo } from "../Header/elements";
 import { ContactForm, Socials } from "./elements";
+import colors from "@/theme/colors";
 
 const Footer = () => {
 	return (
@@ -13,14 +14,17 @@ const Footer = () => {
 				padding: "1rem 4rem  2rem 4rem",
 				gap: 10,
 				marginTop: "2rem",
+				background: `linear-gradient(0deg, ${colors.main} 0%, ${colors.secondary} 100%)`,
 			}}
 		>
 			<Grid
 				container
 				sx={{ width: "100%" }}
+				spacing={2}
 			>
+				{/* logo and socials */}
 				<Grid
-					size={4}
+					size={{xs: 12 , md: 4}}
 					sx={{
 						display: "flex",
 						flexDirection: "column",
@@ -30,12 +34,15 @@ const Footer = () => {
 					<Logo />
 					<Socials />
 				</Grid>
+				{/* navigation */}
 				<Grid
-					size={4}
+					size={{xs: 12 , md: 4}}
 					sx={{
 						display: "flex",
 						justifyContent: "center",
 						alignItems: "flex-start",
+						marginTop: {xs: "1rem", md: 0},
+						marginBottom: {xs: "1rem", md: 0},
 					}}
 				>
 					<Navigation
@@ -43,9 +50,10 @@ const Footer = () => {
 						dense={true}
 					/>
 				</Grid>
+				{/* contactForm */}
 				<Grid
-					size={4}
-					sx={{ display: "flex", justifyContent: "flex-end" }}
+					size={{xs: 12 , md: 4}}
+					sx={{ display: "flex", justifyContent: {xs: "center", md: "flex-end"} }}
 				>
 					<Box sx={{ width: 300 }}>
 						<ContactForm />
@@ -54,10 +62,12 @@ const Footer = () => {
 			</Grid>
 			<Box>
 				<Typography
+					variant="body2"
 					sx={{
 						fontSize: ".75rem",
 						color: "rgba(0,0,0,0.5)",
 						textAlign: "center",
+						mt: 2,
 					}}
 				>
 					All artwork is the sole property of Roldan Vaguez Ortiz and is held
@@ -80,6 +90,7 @@ const Footer = () => {
 						fontSize: ".75rem",
 						color: "rgba(0,0,0,0.5)",
 						textAlign: "center",
+						mt: 2,
 					}}
 				>
 					{" "}
