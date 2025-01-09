@@ -12,7 +12,7 @@ const Footer = () => {
 				flexDirection: "column",
 				padding: "1rem 4rem  2rem 4rem",
 				gap: 10,
-				
+				marginTop: "2rem",
 			}}
 		>
 			<Grid

@@ -1,52 +1,69 @@
-import { Box, Typography, Button } from "@mui/material";
+"use client";
+import { Box, Typography, Button, useMediaQuery, Theme } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
+import Link from "next/link";
 interface MeetArtistSectionProps {
 	text: string;
 	image: string;
 }
 
 const MeetArtistSection = ({ text, image }: MeetArtistSectionProps) => {
+	const isMobile = useMediaQuery((theme: Theme) =>
+		theme.breakpoints.down("md")
+	);
 	return (
 		<Grid
 			container
 			sx={{ minHeight: "80vh", display: "flex", alignItems: "center" }}
-			spacing={8}
 		>
-			<Grid size={7}>
+			<Grid size={{ xs: 12, md: 7 }}>
 				<Box
 					display="flex"
 					flexDirection="column"
 					gap={4}
-					p={8}
+					p={{ xs: 4, md: 8 }}
 					justifyContent={"center"}
 				>
-					<Typography variant="h1">Meet the Artist</Typography>
-					<Typography>{text}</Typography>
+					<Typography variant="h1" textAlign={{xs: "center", md: "left"}}>Meet the Artist</Typography>
+					<Typography variant="body1" textAlign={{xs: "center", md: "left"}}>{text}</Typography>
 				</Box>
 				<Box
-					sx={{ width: "100%", display: "flex", justifyContent: "flex-end" }}
+					sx={{
+						width: "100%",
+						display: "flex",
+						justifyContent: { xs: "center", md: "flex-end" },
+					}}
 				>
-					<Button
-						endIcon={<ArrowForwardIcon />}
-						sx={{ margin: "0 0 0 8px", px: 4 }}
+					<Link
+						href="/about"
+						passHref
 					>
-						Learn About Roldan
-					</Button>
+						<Button
+							endIcon={<ArrowForwardIcon />}
+							sx={{ margin: "0 0 0 8px", px: 4 }}
+						>
+							Learn About Roldan
+						</Button>
+					</Link>
 				</Box>
 			</Grid>
 			<Grid
-				size={5}
-				sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+				size={{ xs: 12, md: 5 }}
+				sx={{
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+					mt: { xs: 4, md: 0 },
+				}}
 			>
 				<Box
 					sx={{
 						backgroundColor: "#EEE5D6",
-						width: "350px",
-						height: "40px",
-						mr: "40px",
+						width: { xs: 250, md: 350 },
+						height: { xs: "30px", md: "40px" },
+						mr: { xs: "30px", md: "40px" },
 						borderRadius: "1rem  1rem 0 0",
 					}}
 				/>
@@ -54,16 +71,16 @@ const MeetArtistSection = ({ text, image }: MeetArtistSectionProps) => {
 					<Image
 						src={image}
 						alt="artist"
-						width={400}
-						height={400}
+						width={isMobile ? 300 : 400}
+						height={isMobile ? 300 : 400}
 						loading="lazy" // Ensure lazy loading for below-the-fold images
 						quality={75}
 					/>
 					<Box
 						sx={{
 							backgroundColor: "#EEE5D6",
-							width: "40px",
-							height: "350px",
+							width: { xs: "30px", md: "40px" },
+							height: { xs: 250, md: 350 },
 							borderRadius: "0 1rem 1rem 0",
 						}}
 					/>
