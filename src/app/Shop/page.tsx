@@ -1,4 +1,4 @@
-import { Hero } from "@/components";
+import { Hero, RecentAdditions } from "@/components";
 
 const heroContent ={
 	title: "Discover Art That Inspires",
@@ -15,6 +15,7 @@ const Shop = () => {
 	return (
 		<div>
 			<Hero {...heroContent} />
+			<RecentAdditions />
 			
 		</div>
 	);

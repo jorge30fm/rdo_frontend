@@ -11,4 +11,5 @@ export { default as Header } from "./navigation/Header";
 //sections
 export { default as MeetArtistSection } from "./pages/HomePage/MeetArtist";
 export { default as Hero } from "./sections/Hero";
+export { default as RecentAdditions } from "./sections/RecentAdditions";
 //utils

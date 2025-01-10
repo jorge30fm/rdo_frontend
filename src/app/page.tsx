@@ -1,19 +1,22 @@
-import { Hero, MeetArtistSection } from "@/components";
+import { Hero, MeetArtistSection, RecentAdditions } from "@/components";
 
 const heroContent = {
 	title: "Roldan Vaguez Studio",
 	subtitle: "Where Art Comes Alive",
 	text: "Discover stunning original paintings, commission bespoke artwork tailored to your vision, or elevate your next event with live painting experiences. Bring the beauty of creativity into your life.",
 	image: "/images/sectionImages/brushesAndCanvas.jpeg",
-	buttons: [{
-		text: "Find Art For You",
-		href: "/Shop",
-		variant: "contained" as const,
-	}, {
-		text: "Inquire",
-		href: "/Contact",
-		variant: "outlined" as const,
-	}]
+	buttons: [
+		{
+			text: "Find Art For You",
+			href: "/Shop",
+			variant: "contained" as const,
+		},
+		{
+			text: "Inquire",
+			href: "/Contact",
+			variant: "outlined" as const,
+		},
+	],
 };
 
 const meetArtistContent = {
@@ -26,6 +29,7 @@ export default function Home() {
 		<div>
 			<Hero {...heroContent} />
 			<MeetArtistSection {...meetArtistContent} />
+			<RecentAdditions />
 		</div>
 	);
 }
