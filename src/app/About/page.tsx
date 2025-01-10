@@ -1,7 +1,13 @@
+import { Hero } from "@/components";
+
+const heroContent = {
+	title: "Roldan Vaguez Ortiz",
+	image: "/images/sectionImages/manPainting.jpeg",
+};
 const About = () => {
 	return (
 		<div>
-			<h1>About Page</h1>
+			<Hero {...heroContent} />
 		</div>
 	);
 };

@@ -4,14 +4,21 @@ import { alpha } from "@mui/material";
 import colors from "@/theme/colors";
 import Link from "next/link";
 
-interface HomeHeroProps {
-	title: string;
-	subtitle: string;
+interface ButtonProps {
 	text: string;
-	image: string;
+	href: string;
+	variant?: "contained" | "outlined";
 }
 
-const HomeHero = ({ title, subtitle, text, image }: HomeHeroProps) => {
+interface HeroProps {
+	title: string;
+	subtitle?: string;
+	text?: string;
+	image: string;
+	buttons?: ButtonProps[]; // Array of button props
+}
+
+const Hero = ({ title, subtitle, text, image, buttons }: HeroProps) => {
 	return (
 		<Box
 			sx={{
@@ -19,7 +26,7 @@ const HomeHero = ({ title, subtitle, text, image }: HomeHeroProps) => {
 				width: "100vw",
 				minHeight: "90vh",
 				overflow: "hidden",
-				display: "flex", 
+				display: "flex",
 				justifyContent: "center",
 				alignItems: "center",
 			}}
@@ -48,7 +55,6 @@ const HomeHero = ({ title, subtitle, text, image }: HomeHeroProps) => {
 			</Box>
 
 			{/* Overlay */}
-			{/* Overlay */}
 			<Box
 				sx={{
 					position: "absolute",
@@ -69,7 +75,7 @@ const HomeHero = ({ title, subtitle, text, image }: HomeHeroProps) => {
 			<Box
 				sx={{
 					position: "relative",
-					zIndex: 2, // Ensure content is above the overlay
+					zIndex: 2,
 					width: "100%",
 					height: "100%",
 					display: "flex",
@@ -86,71 +92,70 @@ const HomeHero = ({ title, subtitle, text, image }: HomeHeroProps) => {
 					variant="h1"
 					sx={{
 						color: colors.dark,
-						//add a shadow to the text
 						textShadow: `2px 2px 4px ${colors.accent}`,
 					}}
 				>
 					{title}
 				</Typography>
-				<Typography
-					variant="h2"
-					sx={{
-						color: alpha(colors.main, 0.8),
-						fontStyle: "italic",
-					}}
-				>
-					{subtitle}
-				</Typography>
-				<Typography
-					variant="body1"
-					sx={{
-						maxWidth: "800px",
-						mt: 2,
-						color: colors.main,
-						fontSize: {xs:"1rem", md:"1.25rem"},
-					}}
-				>
-					{text}
-				</Typography>
-				<Box
-					sx={{
-						display: "flex",
-						flexDirection: { xs: "column", sm: "row" },
-						gap: { xs: 2, sm: 4 },
-						mt: 4,
-					}}
-				>
-					<Link
-						href="/Shop"
-						passHref
+				{subtitle && (
+					<Typography
+						variant="h2"
+						sx={{
+							color: alpha(colors.main, 0.8),
+							fontStyle: "italic",
+						}}
 					>
-						<Button
-							variant="contained"
-							color="primary"
-							size="large"
-							sx={{
-								px: 4,
-							}}
-						>
-							Find Art For You
-						</Button>
-					</Link>
-					<Link
-						href="/Contact"
-						passHref
+						{subtitle}
+					</Typography>
+				)}
+				{text && (
+					<Typography
+						variant="body1"
+						sx={{
+							maxWidth: "800px",
+							mt: 2,
+							color: colors.main,
+							fontSize: { xs: "1rem", md: "1.25rem" },
+						}}
 					>
-						<Button
-							variant="outlined"
-							sx={{ color: colors.main, px: 4, borderColor: colors.main }}
-							size="large"
-						>
-							INQUIRE
-						</Button>
-					</Link>
-				</Box>
+						{text}
+					</Typography>
+				)}
+				{buttons && (
+					<Box
+						sx={{
+							display: "flex",
+							flexDirection: { xs: "column", sm: "row" },
+							gap: { xs: 2, sm: 4 },
+							mt: 4,
+						}}
+					>
+						{buttons.map((button, index) => (
+							<Link
+								key={index}
+								href={button.href}
+								passHref
+							>
+								<Button
+									variant={button.variant || "contained"}
+									sx={{
+										color:
+											button.variant === "outlined" ? colors.main : undefined,
+										px: 4,
+										borderColor:
+											button.variant === "outlined" ? colors.main : undefined,
+									}}
+									size="large"
+								>
+									{button.text}
+								</Button>
+							</Link>
+						))}
+					</Box>
+				)}
 			</Box>
 		</Box>
 	);
 };
 
-export default HomeHero;
+export default Hero;
