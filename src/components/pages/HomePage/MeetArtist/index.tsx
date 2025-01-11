@@ -26,7 +26,7 @@ const MeetArtistSection = ({ text, image }: MeetArtistSectionProps) => {
 					p={{ xs: 4, md: 8 }}
 					justifyContent={"center"}
 				>
-					<Typography variant="h1" textAlign={{xs: "center", md: "left"}}>Meet the Artist</Typography>
+					<Typography variant="h2" textAlign={{xs: "center", md: "left"}}>Meet the Artist</Typography>
 					<Typography variant="body1" textAlign={{xs: "center", md: "left"}}>{text}</Typography>
 				</Box>
 				<Box

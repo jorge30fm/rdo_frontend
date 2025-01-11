@@ -14,4 +14,5 @@ export { default as Header } from "./navigation/Header";
 export { default as MeetArtistSection } from "./pages/HomePage/MeetArtist";
 export { default as Hero } from "./sections/Hero";
 export { default as RecentAdditions } from "./sections/RecentAdditions";
+export { default as AccentBackgroundSection } from "./sections/AccentBackgroundSection";
 //utils
