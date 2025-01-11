@@ -4,6 +4,10 @@ import colors from "@/theme/colors";
 import Image from "next/image";
 import Link from "next/link";
 
+import { AddToCartButton } from "@/components";
+
+//TODO: Handle Add to Cart functionality
+
 interface ProductCardProps {
 	id: number | string;
 	image: string;
@@ -25,7 +29,6 @@ const ProductCard = ({
 	description,
 	material,
 	buttonType = "none", // Default to no button
-	
 }: ProductCardProps) => {
 	return (
 		<Box
@@ -46,7 +49,7 @@ const ProductCard = ({
 					objectFit: "cover",
 				}}
 			/>
-
+			{/* product details */}
 			<Box
 				sx={{ padding: 2, gap: 2, display: "flex", flexDirection: "column" }}
 			>
@@ -101,25 +104,11 @@ const ProductCard = ({
 				{buttonType !== "none" && (
 					<Box>
 						{buttonType === "addToCart" && (
-							<Button
-								variant="outlined"
-								sx={{
-									color: colors.dark,
-									borderColor: colors.dark,
-									"&:hover": {
-										backgroundColor: colors.dark,
-										color: colors.main,
-									},
-								}}
-							>
-								Add to Cart
-							</Button>
+							<AddToCartButton product={{ id, title }} />
 						)}
 						{buttonType === "details" && (
 							<Link
-								href={
-									`Shop/${id}`
-								}
+								href={`Shop/${id}`}
 								passHref
 							>
 								<Button

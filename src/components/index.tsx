@@ -1,5 +1,6 @@
 //common
 export { default as ProductCard } from "./common/ProductCard";
+export { default as AddToCartButton } from "./common/AddToCartButton";
 
 // forms
 

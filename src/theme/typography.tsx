@@ -37,6 +37,36 @@ export const createTypography = (): TypographyOptions => {
 				fontSize: "1.5rem",
 			},
 		},
+		h3: {
+			fontSize: "2rem",
+			fontWeight: 600,
+			fontFamily: '"Archivo Black", sans-serif',
+			lineHeight: "1.2em",
+			letterSpacing: "0em",
+			textTransform: "uppercase",
+			color: colors.dark,
+			"@media (max-width: 1200px)": {
+				fontSize: "1.75rem",
+			},
+			"@media (max-width: 900px)": {
+				fontSize: "1.25rem",
+			},
+		},
+		h4: {
+			fontSize: "1.5rem",
+			fontWeight: 600,
+			fontFamily: '"Archivo Black", sans-serif',
+			lineHeight: "1.2em",
+			letterSpacing: "0em",
+			textTransform: "uppercase",
+			color: colors.dark,
+			"@media (max-width: 1200px)": {
+				fontSize: "1.25rem",
+			},
+			"@media (max-width: 900px)": {
+				fontSize: "1rem",
+			},
+		},
 		body1: {
 			fontSize: "1rem",
 			fontWeight: 600,
@@ -47,6 +77,18 @@ export const createTypography = (): TypographyOptions => {
 			color: colors.dark,
 			"@media (max-width: 900px)": {
 				fontSize: "0.875rem", // Adjust for smaller screens
+			},
+		},
+		body2: {
+			fontSize: "0.875rem",
+			fontWeight: 600,
+			fontFamily: '"Space Grotesk", sans-serif',
+			lineHeight: "1.5em",
+			letterSpacing: "0em",
+			textTransform: "none",
+			color: colors.dark,
+			"@media (max-width: 900px)": {
+				fontSize: "0.75rem", // Adjust for smaller screens
 			},
 		},
 		// Add similar responsive styles for other typography variants as needed
