@@ -1,9 +1,9 @@
 "use client";
-import { Box, Typography, Button, useMediaQuery, Theme } from "@mui/material";
+import { Box, Typography, useMediaQuery, Theme } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import Link from "next/link";
+import LinkButton from "@/components/common/LinkButton";
 interface MeetArtistSectionProps {
 	text: string;
 	image: string;
@@ -36,17 +36,9 @@ const MeetArtistSection = ({ text, image }: MeetArtistSectionProps) => {
 						justifyContent: { xs: "center", md: "flex-end" },
 					}}
 				>
-					<Link
-						href="/about"
-						passHref
-					>
-						<Button
-							endIcon={<ArrowForwardIcon />}
-							sx={{ margin: "0 0 0 8px", px: 4 }}
-						>
-							Learn About Roldan
-						</Button>
-					</Link>
+					<LinkButton href="/About" text="Learn About Roldan" endIcon={<ArrowForwardIcon/>}/>
+					
+					
 				</Box>
 			</Grid>
 			<Grid

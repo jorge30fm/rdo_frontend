@@ -1,8 +1,8 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { alpha } from "@mui/material";
 import colors from "@/theme/colors";
-import Link from "next/link";
+import LinkButton from "@/components/common/LinkButton";
 
 interface ButtonProps {
 	text: string;
@@ -131,25 +131,14 @@ const Hero = ({ title, subtitle, text, image, buttons }: HeroProps) => {
 						}}
 					>
 						{buttons.map((button, index) => (
-							<Link
+							<LinkButton
 								key={index}
 								href={button.href}
-								passHref
-							>
-								<Button
-									variant={button.variant || "contained"}
-									sx={{
-										color:
-											button.variant === "outlined" ? colors.main : undefined,
-										px: 4,
-										borderColor:
-											button.variant === "outlined" ? colors.main : undefined,
-									}}
-									size="large"
-								>
-									{button.text}
-								</Button>
-							</Link>
+								text={button.text}
+								variant={button.variant} // Use the variant directly from the button object
+								color={button.variant === "outlined" ? "light" : "dark"} // Set color based on variant
+								size="large"
+							/>
 						))}
 					</Box>
 				)}

@@ -1,10 +1,9 @@
 "use client";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import colors from "@/theme/colors";
 import Image from "next/image";
-import Link from "next/link";
 
-import { AddToCartButton } from "@/components";
+import { AddToCartButton, LinkButton } from "@/components";
 
 //TODO: Handle Add to Cart functionality
 
@@ -107,24 +106,12 @@ const ProductCard = ({
 							<AddToCartButton product={{ id, title }} />
 						)}
 						{buttonType === "details" && (
-							<Link
+							<LinkButton
+								variant="outlined"
+								text="View Details"
+								color="dark"
 								href={`Shop/${id}`}
-								passHref
-							>
-								<Button
-									variant="outlined"
-									sx={{
-										color: colors.dark,
-										borderColor: colors.dark,
-										"&:hover": {
-											backgroundColor: colors.dark,
-											color: colors.main,
-										},
-									}}
-								>
-									View Details
-								</Button>
-							</Link>
+							/>
 						)}
 					</Box>
 				)}
