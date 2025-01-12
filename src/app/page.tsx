@@ -41,6 +41,7 @@ export default function Home() {
 				text="Experience the magic of live event painting, where every brushstroke captures the beauty and essence of your most cherished moments. Whether it's a wedding, a milestone celebration, or a corporate gathering, I bring your event to life on canvas as it unfolds. Each painting becomes a timeless keepsake, imbued with the emotions and atmosphere of the day. This unique service not only provides you with a stunning piece of art but also adds an unforgettable live art performance for your guests to enjoy."
 				buttonText="Book Your Event"
 				href="/LivePaintings"
+				position="right"
 			/>
 		</div>
 	);

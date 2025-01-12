@@ -12,6 +12,7 @@ interface AccentBackgroundSectionProps {
 	text: string;
 	buttonText: string;
 	href: string;
+	position?: "left" | "right"; // New prop to control the image position
 }
 
 const AccentBackgroundSection = ({
@@ -20,6 +21,7 @@ const AccentBackgroundSection = ({
 	text,
 	buttonText,
 	href,
+	position = "left", // Default position is left
 }: AccentBackgroundSectionProps) => {
 	const isMobile = useMediaQuery((theme: Theme) =>
 		theme.breakpoints.down("sm")
@@ -27,27 +29,35 @@ const AccentBackgroundSection = ({
 	const isTablet = useMediaQuery((theme: Theme) =>
 		theme.breakpoints.down("md")
 	);
+
+	const isImageRight = position === "right";
+
 	return (
 		<Box
 			sx={{
 				display: "flex",
-				flexDirection: isMobile || isTablet ? "column" : "row",
+				flexDirection:
+					isMobile || isTablet
+						? "column"
+						: isImageRight
+						? "row-reverse"
+						: "row",
 				background: gradients.accent,
 				color: "textLight",
-				alignItems: isMobile || isTablet ? "center" : "center",
+				alignItems: "center",
 				padding: isMobile ? "2rem" : "0",
 				gap: isMobile ? "2rem" : "0",
 			}}
 		>
+			{/* Image Section */}
 			<Box
 				sx={{
 					width: isMobile ? "100%" : "auto",
 					height: isMobile || isTablet ? "auto" : "550px",
 					position: "relative",
 					p: isTablet ? "2rem" : "0",
-                    display: "flex",
-                    justifyContent: "center",
-
+					display: "flex",
+					justifyContent: "center",
 				}}
 			>
 				<Image
@@ -62,6 +72,8 @@ const AccentBackgroundSection = ({
 					}}
 				/>
 			</Box>
+
+			{/* Text Section */}
 			<Box
 				sx={{
 					display: "flex",
@@ -95,7 +107,7 @@ const AccentBackgroundSection = ({
 					<LinkButton
 						href={href}
 						text={buttonText}
-						color="light"
+						color="dark"
 						variant="contained"
 					/>
 				</Box>
