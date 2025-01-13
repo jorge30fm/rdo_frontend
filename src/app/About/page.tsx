@@ -1,4 +1,4 @@
-import { Hero, CarouselReviews } from "@/components";
+import { Hero, CarouselReviews, SplitFeatureSection } from "@/components";
 import { Box } from "@mui/material";
 import colors from "@/theme/colors";
 
@@ -35,11 +35,32 @@ const reviews = {
 		},
 	],
 };
+const aboutMeSectionContent = {
+	title: "About Me",
+	content:
+		"With over a decade of experience, I’ve dedicated my life to capturing the raw beauty of life through art. From a young boy sketching in the streets of Havana to a recognized painter in the global art scene, my journey has been one of passion and discovery. My work celebrates culture, nature, and the essence of human connection.",
+	buttonText: "Let's Collaborate",
+	buttonHref: "/Contact",
+	imageSrc: "/images/sectionImages/RoldanPlaceHolder.jpeg",
+	imageAlt: "Roldan painting a portrait",
+};
+const artisticStyleSectionContent = {	
+	title: "Artistic Style",
+	content:
+		"My art is a reflection of my life, my experiences, and my emotions. I draw inspiration from the world around me, from the vibrant colors of the Caribbean to the rich history of my Cuban heritage. My work is a celebration of life, love, and the beauty of the human spirit.",
+	buttonText: "View Portfolio",
+	buttonHref: "/Gallery",
+	imageSrc: "/images/sectionImages/paintingTools.jpeg",
+	imageAlt: "Roldan painting a portrait",
+	imagePosition: "right" as const,
+};
 
 const About = () => {
 	return (
 		<div>
 			<Hero {...heroContent} />
+			<SplitFeatureSection {...aboutMeSectionContent} />
+			<SplitFeatureSection {...artisticStyleSectionContent} />
 			<Box sx={{ background: colors.secondary, py: "4rem" }}>
 				<CarouselReviews
 					title={reviews.title}

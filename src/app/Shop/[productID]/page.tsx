@@ -13,6 +13,7 @@ const ProductDetails = () => {
 	return (
 		<div>
 			<ProductDetailsLayout {...product} />
+			
 		</div>
 	);
 };

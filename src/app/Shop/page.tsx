@@ -3,6 +3,7 @@ import {
 	RecentAdditions,
 	FeaturedCollectionsSection,
 	CarouselReviews,
+	CallToAction
 } from "@/components";
 import { Box } from "@mui/material";
 import colors from "@/theme/colors";
@@ -48,6 +49,14 @@ const reviews = {
 		},
 	],
 };
+const callToActionContent = {
+	title: "Looking for Something Unique?",
+	description:"Commission a custom piece tailored to your vision.",
+	buttonText: "Looking for Something Unique?",
+	buttonHref: "/Contact",
+	backgroundImage: "/images/roldanOriginals/nature.jpg",
+
+};
 const Shop = () => {
 	return (
 		<div>
@@ -58,12 +67,14 @@ const Shop = () => {
 			<Box sx={{ backgroundColor: colors.secondary, padding: "2rem" }}>
 				<RecentAdditions />
 			</Box>
+			<CallToAction {...callToActionContent} />
 			<Box sx={{ background: colors.secondary, py: "4rem" }}>
 				<CarouselReviews
 					title={reviews.title}
 					items={reviews.items}
 				/>
 			</Box>
+			
 		</div>
 	);
 };
