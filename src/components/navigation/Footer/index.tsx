@@ -13,8 +13,8 @@ const Footer = () => {
 				flexDirection: "column",
 				padding: "1rem 4rem  2rem 4rem",
 				gap: 10,
-				marginTop: "2rem",
-				background: `linear-gradient(0deg, ${colors.main} 0%, ${colors.secondary} 100%)`,
+				
+				background: colors.main,
 			}}
 		>
 			<Grid

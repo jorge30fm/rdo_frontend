@@ -9,7 +9,7 @@ const colors = {
 
 const gradients = {
 	main: `linear-gradient(135deg, ${colors.main} 0%, ${colors.secondary} 100%)`,
-	accent: `linear-gradient(135deg, ${colors.accent} 0%, #7A533A 100%)`,
+	accent: `linear-gradient(135deg, ${colors.accent} 0%, #5C3D28 100%)`,
 }
 
 export { gradients };
