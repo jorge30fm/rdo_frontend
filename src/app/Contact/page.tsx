@@ -1,4 +1,4 @@
-import { Hero, CarouselReviews } from "@/components";
+import { Hero, CarouselReviews, CallToAction } from "@/components";
 import { Box } from "@mui/material";
 import colors from "@/theme/colors";
 
@@ -43,6 +43,13 @@ const reviews = {
 		},
 	],
 };
+
+const callToActionContent = {
+	title: "	Ready to Create Something Beautiful?",
+	buttonText: "Reach Out",
+	buttonHref: "/Contact",
+	backgroundImage: "/images/wedding/firstLook.jpeg",
+};
 const Contact = () => {
 	return (
 		<div>
@@ -53,6 +60,7 @@ const Contact = () => {
 					items={reviews.items}
 				/>
 			</Box>
+			<CallToAction {...callToActionContent} />
 		</div>
 	);
 };

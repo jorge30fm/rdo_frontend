@@ -183,7 +183,7 @@ const TimelineCarousel: React.FC<CarouselReviewsProps> = ({ title, items }) => {
 			{/* Title */}
 			{title && (
 				<Typography
-					variant="h4"
+					variant="h2"
 					sx={{
 						fontWeight: "bold",
 						textAlign: "center",
