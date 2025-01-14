@@ -26,7 +26,8 @@ export default function RootLayout({
 				/>
 				<link
 					rel="icon"
-					href="/favicon.ico"
+					type="image/svg+xml"
+					href="/Logo2.svg"
 				/>
 			</head>
 

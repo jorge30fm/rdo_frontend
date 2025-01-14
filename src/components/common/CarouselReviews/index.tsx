@@ -156,6 +156,7 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
 						objectFit: "contain",
 						borderRadius: 2,
 						boxShadow: 2,
+						mb: { xs: 2, md: 0 },
 					}}
 				/>
 			</Box>

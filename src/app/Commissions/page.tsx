@@ -3,6 +3,8 @@ import {
 	CarouselReviews,
 	SplitFeatureSection,
 	TimelineCarousel,
+	FormWithImageBackground,
+	CommissionForm,
 } from "@/components";
 import { Box } from "@mui/material";
 import colors from "@/theme/colors";
@@ -115,6 +117,13 @@ const theProcessSectionContent = {
 		},
 	],
 };
+
+const contactSectionContent = {
+	title: "Request a Commission",
+	text: "Ready to bring your vision to life? Fill out the form below to request a commission, and we’ll be in touch to discuss your project.",
+	form: <CommissionForm light />,
+	imageSrc: "/images/sectionImages/paintOnCanvas.jpeg",
+};
 const Commissions = () => {
 	return (
 		<div>
@@ -127,6 +136,7 @@ const Commissions = () => {
 					items={reviews.items}
 				/>
 			</Box>
+			<FormWithImageBackground {...contactSectionContent} />
 		</div>
 	);
 };

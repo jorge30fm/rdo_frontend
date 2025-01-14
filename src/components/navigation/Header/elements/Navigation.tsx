@@ -9,7 +9,6 @@ const navigation = [
 		href: "/Gallery",
 		menuOptions: [
 			{ text: "Live Wedding Paintings", href: "/Gallery/LiveWeddingPaintings" },
-			{ text: "Father-Daughter Walk", href: "/Gallery/FatherDaughterWalk" },
 			{ text: "After the Wedding", href: "/Gallery/AfterTheWedding" },
 			{ text: "Traditional Portraits", href: "/Gallery/TraditionalPortraits" },
 			{ text: "Commission Art", href: "/Gallery/CommissionArt" },

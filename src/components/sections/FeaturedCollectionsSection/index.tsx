@@ -6,25 +6,25 @@ const collections = [
 	{
 		title: "Portraits",
 		text: "Capture the essence of your loved ones with a custom portrait.",
-		href: "/Portraits",
+		href: "/Shop",
 		image: "/images/roldanOriginals/girl.jpg",
 	},
 	{
 		title: "Landscapes",
 		text: "Immerse yourself in serene and vibrant scenery.",
-		href: "/Portraits",
+		href: "/Shop",
 		image: "/images/roldanOriginals/nature.jpg",
 	},
 	{
 		title: "Nature",
 		text: "Connect with the beauty of the natural world",
-		href: "/Portraits",
+		href: "/Shop",
 		image: "/images/roldanOriginals/horse.jpg",
 	},
 	{
 		title: "Cultural",
 		text: "Celebrate heritage and storytelling through art",
-		href: "/Portraits",
+		href: "/Shop",
 		image: "/images/roldanOriginals/tobaco.jpg",
 	},
 ];

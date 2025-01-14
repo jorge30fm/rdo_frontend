@@ -6,10 +6,10 @@ import colors from "@/theme/colors";
 import { LinkButton } from "@/components";
 
 interface SplitFeatureSectionProps {
-	title: string;
+	title?: string;
 	content: React.ReactNode; // Allow JSX or string
-	buttonText: string;
-	buttonHref: string;
+	buttonText?: string;
+	buttonHref?: string;
 	imageSrc: string;
 	imageAlt: string;
 	imagePosition?: "left" | "right"; // Prop to toggle the position
@@ -47,7 +47,7 @@ const SplitFeatureSection: React.FC<SplitFeatureSectionProps> = ({
 				sx={{
 					position: "relative",
 					width: { xs: "100%", md: "40%" },
-					aspectRatio: "5 / 6", // Maintain proportional aspect ratio
+					aspectRatio: { xs: "16 / 9", lg: "5 / 4" },
 					overflow: "hidden",
 					borderTopRightRadius: isImageLeft ? { xs: 0, md: "2rem" } : 0,
 					borderBottomRightRadius: isImageLeft ? { xs: 0, md: "2rem" } : 0,
@@ -79,12 +79,18 @@ const SplitFeatureSection: React.FC<SplitFeatureSectionProps> = ({
 					overflowY: "auto", // Make content scrollable if it overflows
 				}}
 			>
-				<Typography
-					variant="h2"
-					sx={{ fontWeight: "bold", mb: 2 }}
-				>
-					{title}
-				</Typography>
+				{title && (
+					<Typography
+						variant="h4"
+						sx={{
+							color: colors.textDark,
+							fontWeight: "bold",
+							mb: 2,
+						}}
+					>
+						{title}
+					</Typography>
+				)}
 				<Box
 					sx={{
 						color: colors.textDark,
@@ -93,21 +99,23 @@ const SplitFeatureSection: React.FC<SplitFeatureSectionProps> = ({
 				>
 					{content}
 				</Box>
-				<Box
-					sx={{
-						display: "flex",
-						justifyContent: "flex-end",
-						width: "100%",
-					}}
-				>
-					<LinkButton
-						href={buttonHref}
-						text={buttonText}
-						color="dark"
-						variant="contained"
-						size="large"
-					/>
-				</Box>
+				{buttonText && buttonHref && (
+					<Box
+						sx={{
+							display: "flex",
+							justifyContent: "flex-end",
+							width: "100%",
+						}}
+					>
+						<LinkButton
+							href={buttonHref}
+							text={buttonText}
+							color="dark"
+							variant="contained"
+							size="large"
+						/>
+					</Box>
+				)}
 			</Box>
 		</Box>
 	);

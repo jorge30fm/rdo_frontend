@@ -3,7 +3,9 @@ import {
 	CarouselReviews,
 	SplitFeatureSection,
 	CallToAction,
-	TimelineCarousel
+	TimelineCarousel,
+	LivePaintingForm,
+	FormWithImageBackground
 } from "@/components";
 import { Box } from "@mui/material";
 import colors from "@/theme/colors";
@@ -136,7 +138,12 @@ const theProcessSection = {
 
 }]
 }
-
+const contactSectionContent = {
+	title: "Inquire Today",
+	text: "Ready to turn your wedding into a masterpiece? Fill out the form below to request a live painting for your special day.",
+	form: <LivePaintingForm light />,
+	imageSrc: "/images/wedding/firstLook.jpeg",
+};
 
 const LivePaintings = () => {
 	return (
@@ -162,6 +169,7 @@ const LivePaintings = () => {
 					items={reviews.items}
 				/>
 			</Box>
+			<FormWithImageBackground {...contactSectionContent} />
 			
 		</div>
 	);

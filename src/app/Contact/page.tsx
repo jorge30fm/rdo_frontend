@@ -1,4 +1,10 @@
-import { Hero, CarouselReviews, CallToAction } from "@/components";
+import {
+	Hero,
+	CarouselReviews,
+	CallToAction,
+	SplitFeatureSection,
+	ContactToggleSwitch,
+} from "@/components";
 import { Box } from "@mui/material";
 import colors from "@/theme/colors";
 
@@ -50,10 +56,19 @@ const callToActionContent = {
 	buttonHref: "/Contact",
 	backgroundImage: "/images/wedding/firstLook.jpeg",
 };
+
+const formSection = {
+	content: <ContactToggleSwitch />,
+	imageSrc: "/images/sectionImages/paintingTools.jpeg",
+	imageAlt: "Painting Tools",
+	imagePosition: "left" as const,
+};
+
 const Contact = () => {
 	return (
 		<div>
 			<Hero {...heroContent} />
+			<SplitFeatureSection {...formSection} />
 			<Box sx={{ background: colors.secondary, py: "4rem" }}>
 				<CarouselReviews
 					title={reviews.title}
@@ -61,6 +76,7 @@ const Contact = () => {
 				/>
 			</Box>
 			<CallToAction {...callToActionContent} />
+	
 		</div>
 	);
 };
