@@ -112,7 +112,7 @@ const ProductsPage = memo(function ProductsPage() {
 	}, [dispatch, selectedFilters, search]);
 
 	// Redux State
-	const products = useSelector((state: RootState) => state.products.products);
+	const products = useSelector((state: RootState) => state.products.products as Product[]);
 	const filters = useSelector((state: RootState) => state.filters.filters);
 
 	// Handlers
