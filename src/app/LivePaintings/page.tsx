@@ -57,7 +57,7 @@ const artisticStyleSectionContent = {
 		"Our live wedding paintings are created in a vibrant acrylic style, blending elegance with emotion. Warm, earthy tones and soft brushstrokes give each painting a timeless and heartfelt atmosphere. Every detail, from the venue to the smallest expressions, is brought to life on canvas with care and precision.",
 	buttonText: "View Portfolio",
 
-	buttonHref: "/Gallery",
+	buttonHref: "/Gallery/LiveWeddingPaintings",
 	imageSrc: "/images/sectionImages/paintingTools.jpeg",
 	imageAlt: "Roldan painting a portrait",
 	imagePosition: "right" as const,
@@ -68,7 +68,7 @@ const investmentSectionContent = {
 	content:" Live wedding paintings start at $1,500 and include a consultation, on-site painting, and a finished piece to take home. Additional services, such as custom framing or larger canvas sizes, are available upon request. Each painting is a one-of-a-kind creation that captures the essence of your day in a unique and personal way.",
 		buttonText: "View Portfolio",
 
-	buttonHref: "/Gallery",
+	buttonHref: "/Gallery/LiveWeddingPaintings",
 	imageSrc: "/images/wedding/brideAndGroom.jpeg",
 	imageAlt: "Roldan painting a portrait",
 };

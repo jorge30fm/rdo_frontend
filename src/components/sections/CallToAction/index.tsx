@@ -49,9 +49,11 @@ const CallToAction: React.FC<CallToActionProps> = ({
 				<Image
 					src={backgroundImage}
 					alt="Call to Action Background"
-					layout="fill"
-					objectFit="cover"
-					objectPosition="center"
+					fill
+					style={{
+						objectFit: "cover",
+						objectPosition: "center",
+					}}
 				/>
 			</Box>
 
@@ -100,8 +102,8 @@ const CallToAction: React.FC<CallToActionProps> = ({
 						sx={{
 							fontWeight: "bold",
 							textAlign: "center",
-                            color: colors.main,
-                            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+							color: colors.main,
+							textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
 						}}
 					>
 						{title}
@@ -153,7 +155,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
 								alt="Side Content"
 								width={300}
 								height={300}
-								objectFit="contain"
+								style={{objectFit:"contain"}}
 							/>
 						) : (
 							sideContent

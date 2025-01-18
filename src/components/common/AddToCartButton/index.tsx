@@ -3,21 +3,19 @@ import colors from "@/theme/colors";
 
 //TODO: refine the product type
 interface Product {
-  id: number | string;
-  title: string;
- 
+	id: number | string;
+	name: string;
 }
 
 const AddToCartButton = ({ product }: { product: Product }) => {
+	//TODO: Implement addToCart functionality as a custom hook
 
-    //TODO: Implement addToCart functionality as a custom hook 
-    
 	// const { id, title, price } = product;
 	// const { addToCart } = useCart();
-	
-    const handleClick = () => {
+
+	const handleClick = () => {
 		// addToCart(product);
-        console.log(product)
+		console.log(product);
 	};
 	return (
 		<Button

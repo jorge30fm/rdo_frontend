@@ -5,6 +5,7 @@ export { default as LinkButton } from "./common/LinkButton";
 export { default as FeaturedCollectionCard } from "./common/FeaturedCollectionCard";
 export { default as CarouselReviews } from "./common/CarouselReviews";
 export { default as TimelineCarousel } from "./common/TimelineCarousel";
+export {default as ProductImage} from "./common/ProductImage";
 // forms
 export { default as LivePaintingForm } from "./forms/contactForms/LivePainting";
 export { default as GeneralInquiryForm } from "./forms/contactForms/GeneralInquiry";
@@ -15,8 +16,9 @@ export { default as FormWithImageBackground } from "./forms/FormWithImageBackgro
 //navigation
 export { default as Footer } from "./navigation/Footer";
 export { default as Header } from "./navigation/Header";
+export {default  as Breadcrumb} from "./navigation/Breadcrumb";
 //pages
-
+export {default as FilterPanel} from "./pages/Shop/FilterPanel";
 //sections
 export { default as MeetArtistSection } from "./pages/HomePage/MeetArtist";
 export { default as Hero } from "./sections/Hero";

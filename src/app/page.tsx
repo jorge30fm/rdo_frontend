@@ -1,3 +1,4 @@
+"use client";
 import {
 	Hero,
 	MeetArtistSection,
@@ -64,6 +65,9 @@ const reviews = {
 };
 
 export default function Home() {
+	
+
+
 	return (
 		<Box>
 			<Hero {...heroContent} />

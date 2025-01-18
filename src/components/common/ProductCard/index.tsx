@@ -1,16 +1,16 @@
 "use client";
 import { Box, Typography } from "@mui/material";
 import colors from "@/theme/colors";
-import Image from "next/image";
 
-import { AddToCartButton, LinkButton } from "@/components";
+import { AddToCartButton, LinkButton, ProductImage } from "@/components";
 
 //TODO: Handle Add to Cart functionality
 
 interface ProductCardProps {
 	id: number | string;
-	image: string;
-	title: string;
+	//array of objects
+	image:  string;
+	name: string;
 	price?: number;
 	size?: string;
 	description?: string;
@@ -22,7 +22,7 @@ interface ProductCardProps {
 const ProductCard = ({
 	id,
 	image,
-	title,
+	name,
 	price,
 	size,
 	description,
@@ -34,30 +34,36 @@ const ProductCard = ({
 			sx={{
 				display: "flex",
 				flexDirection: "column",
-				maxWidth: 275,
+				justifyContent: "space-between",
+				maxWidth: 200,
+				minHeight: "370px",
+				bakground: "green",
+				flexGrow: 1,
 			}}
 		>
-			<Image
-				src={image}
-				alt={title}
-				width={275}
-				height={275}
-				loading="lazy" // Ensure lazy loading for below-the-fold images
-				quality={75}
-				style={{
-					objectFit: "cover",
-				}}
+			
+			<ProductImage
+				image={image}
+				name={name}
+				productId={id}
 			/>
 			{/* product details */}
 			<Box
-				sx={{ padding: 2, gap: 2, display: "flex", flexDirection: "column" }}
+				sx={{
+					py: 2,
+					gap: 2,
+					display: "flex",
+					flexDirection: "column",
+					flexGrow: 1,
+					justifyContent: "space-between",
+				}}
 			>
 				<Typography
 					variant="h4"
-					fontSize={{ xs: "1rem", md: "1.5rem" }}
+					fontSize={{ xs: "1rem" }}
 					sx={{ fontWeight: "bold", color: colors.dark }}
 				>
-					{title}
+					{name}
 				</Typography>
 
 				{/* Optional Size */}
@@ -103,14 +109,14 @@ const ProductCard = ({
 				{buttonType !== "none" && (
 					<Box>
 						{buttonType === "addToCart" && (
-							<AddToCartButton product={{ id, title }} />
+							<AddToCartButton product={{ id, name }} />
 						)}
 						{buttonType === "details" && (
 							<LinkButton
 								variant="outlined"
 								text="View Details"
 								color="dark"
-								href={`Shop/${id}`}
+								href={`Shop/products/${id}`}
 							/>
 						)}
 					</Box>

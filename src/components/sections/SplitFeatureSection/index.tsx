@@ -58,9 +58,11 @@ const SplitFeatureSection: React.FC<SplitFeatureSectionProps> = ({
 				<Image
 					src={imageSrc}
 					alt={imageAlt}
-					layout="fill"
-					objectFit="cover"
-					objectPosition="top"
+					fill
+					style={{
+						objectFit: "cover",
+						objectPosition: "top",
+					}}
 				/>
 			</Box>
 

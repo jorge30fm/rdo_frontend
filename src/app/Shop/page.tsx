@@ -14,7 +14,7 @@ const heroContent = {
 	buttons: [
 		{
 			text: "Shop Now",
-			href: "/shop",
+			href: "/Shop/products",
 			variant: "contained" as const,
 		},
 	],

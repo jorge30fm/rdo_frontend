@@ -49,7 +49,7 @@ const artisticStyleSectionContent = {
 	content:
 		"My art is a reflection of my life, my experiences, and my emotions. I draw inspiration from the world around me, from the vibrant colors of the Caribbean to the rich history of my Cuban heritage. My work is a celebration of life, love, and the beauty of the human spirit.",
 	buttonText: "View Portfolio",
-	buttonHref: "/Gallery",
+	buttonHref: "/Gallery/CommissionArt",
 	imageSrc: "/images/sectionImages/paintingTools.jpeg",
 	imageAlt: "Roldan painting a portrait",
 	imagePosition: "right" as const,

@@ -6,8 +6,8 @@ import { AddToCartButton } from "@/components";
 
 interface ProductProps {
 	id: number | string;
-	image: string;
-	title: string;
+	product_images: { image: string }[];
+	name: string;
 	price?: number;
 	size?: string;
 	description?: string;
@@ -16,8 +16,8 @@ interface ProductProps {
 
 const ProductDetailsLayout = ({
 	id,
-	image,
-	title,
+	product_images,
+	name,
 	price,
 	size,
 	description,
@@ -26,8 +26,8 @@ const ProductDetailsLayout = ({
 	return (
 		<Box sx={{ display: "flex", gap: 8, py: 4, px: 18 }}>
 			<Image
-				src={image}
-				alt={title}
+				src={product_images[0].image}
+				alt={name}
 				width={500}
 				height={500}
 				quality={75}
@@ -49,7 +49,7 @@ const ProductDetailsLayout = ({
 						textTransform: "uppercase",
 					}}
 				>
-					{title}
+					{name}
 				</Typography>
 				<Typography
 					variant="h5"
@@ -81,7 +81,7 @@ const ProductDetailsLayout = ({
 					{description}
 				</Typography>
 
-				<AddToCartButton product={{ title, id }} />
+				<AddToCartButton product={{ name, id }} />
 			</Box>
 		</Box>
 	);
