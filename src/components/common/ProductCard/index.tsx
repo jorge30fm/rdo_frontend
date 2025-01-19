@@ -12,6 +12,7 @@ interface ProductCardProps {
 	image:  string;
 	name: string;
 	price?: number;
+	quantity?: number;
 	size?: string;
 	description?: string;
 	material?: string;
@@ -23,6 +24,7 @@ const ProductCard = ({
 	id,
 	image,
 	name,
+	quantity,
 	price,
 	size,
 	description,
@@ -108,8 +110,8 @@ const ProductCard = ({
 				{/* Render Button */}
 				{buttonType !== "none" && (
 					<Box>
-						{buttonType === "addToCart" && (
-							<AddToCartButton product={{ id, name }} />
+						{buttonType === "addToCart" && price && (
+							<AddToCartButton product={{ id, name, price, image, quantity: quantity ?? 1 }} />
 						)}
 						{buttonType === "details" && (
 							<LinkButton

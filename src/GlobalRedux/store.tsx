@@ -1,7 +1,7 @@
 "use client";
 
 import { configureStore } from "@reduxjs/toolkit";
-import cartReducer from "@/GlobalRedux/features/cartSlice";
+import cartReducer from "@/GlobalRedux/features/shoppingCartSlice";
 import productsReducer from "@/GlobalRedux/features/productsSlice";
 import filtersReducer from "@/GlobalRedux/features/filtersSlice";
 import { useDispatch } from "react-redux";

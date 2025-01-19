@@ -109,7 +109,7 @@ const SearchBar = React.forwardRef<HTMLElement, SearchBarProps>(
 					name="search"
 					size="small"
 					label="Search"
-					placeholder="Search..."
+					placeholder="Search art..."
 					InputLabelProps={{ style: { fontSize: ".875rem" } }}
 					sx={{
 						"& .MuiOutlinedInput-root": {

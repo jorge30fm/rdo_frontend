@@ -8,7 +8,8 @@ interface ProductProps {
 	id: number | string;
 	product_images: { image: string }[];
 	name: string;
-	price?: number;
+	price: number;
+	quantity: number;
 	size?: string;
 	description?: string;
 	material?: string;
@@ -20,6 +21,7 @@ const ProductDetailsLayout = ({
 	name,
 	price,
 	size,
+	quantity,
 	description,
 	material,
 }: ProductProps) => {
@@ -81,8 +83,14 @@ const ProductDetailsLayout = ({
 					{description}
 				</Typography>
 
-				<AddToCartButton product={{ name, id }} />
-			</Box>
+				<AddToCartButton product={{
+					id,
+					name,
+					price,
+					quantity,
+					image: product_images[0].image,
+				}} />
+				</Box>
 		</Box>
 	);
 };

@@ -6,6 +6,7 @@ export { default as FeaturedCollectionCard } from "./common/FeaturedCollectionCa
 export { default as CarouselReviews } from "./common/CarouselReviews";
 export { default as TimelineCarousel } from "./common/TimelineCarousel";
 export {default as ProductImage} from "./common/ProductImage";
+export {default as ShoppingCartMenu} from "./common/ShoppingCart/CartMenu";
 // forms
 export { default as LivePaintingForm } from "./forms/contactForms/LivePainting";
 export { default as GeneralInquiryForm } from "./forms/contactForms/GeneralInquiry";
