@@ -9,7 +9,7 @@ import { AddToCartButton, LinkButton, ProductImage } from "@/components";
 interface ProductCardProps {
 	id: number | string;
 	//array of objects
-	image:  string;
+	image: string;
 	name: string;
 	price?: number;
 	quantity?: number;
@@ -43,7 +43,6 @@ const ProductCard = ({
 				flexGrow: 1,
 			}}
 		>
-			
 			<ProductImage
 				image={image}
 				name={name}
@@ -111,7 +110,9 @@ const ProductCard = ({
 				{buttonType !== "none" && (
 					<Box>
 						{buttonType === "addToCart" && price && (
-							<AddToCartButton product={{ id, name, price, image, quantity: quantity ?? 1 }} />
+							<AddToCartButton
+								product={{ id, name, price, image, quantity: quantity ?? 1 }}
+							/>
 						)}
 						{buttonType === "details" && (
 							<LinkButton

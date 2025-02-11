@@ -1,20 +1,22 @@
-import type { NextConfig } from "next";
+import { NextConfig } from "next";
+import autoCert from "anchor-pki/auto-cert/integrations/next";
 
-const nextConfig: NextConfig = {
-	/* config options here */
-};
+// Enable automatic certificate handling in development
+const withAutoCert = autoCert({
+	enabledEnv: "development",
+});
 
-// next.config.js
-module.exports = {
+// Define Next.js configuration
+const nextConfig: NextConfig = withAutoCert({
 	images: {
 		remotePatterns: [
 			{
 				protocol: "https",
 				hostname: "rdobackend-bucket.s3.amazonaws.com",
-				pathname: "/products/**", // Optional: Restrict to a specific path
+				pathname: "/products/**", // Restrict to specific path
 			},
 		],
 	},
-};
+});
 
 export default nextConfig;

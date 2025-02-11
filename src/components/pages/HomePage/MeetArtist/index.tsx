@@ -3,7 +3,7 @@ import { Box, Typography, useMediaQuery, Theme } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import Image from "next/image";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import LinkButton from "@/components/common/LinkButton";
+import LinkButton from "@/components/common/Buttons/LinkButton";
 interface MeetArtistSectionProps {
 	text: string;
 	image: string;

@@ -4,9 +4,11 @@ import {
 	FeaturedCollectionsSection,
 	CarouselReviews,
 	CallToAction
+	
 } from "@/components";
 import { Box } from "@mui/material";
 import colors from "@/theme/colors";
+
 const heroContent = {
 	title: "Discover Art That Inspires",
 	text: "Explore original artwork and prints by Roldan Valdez. Find the perfect piece to elevate your space or gift to someone special.",

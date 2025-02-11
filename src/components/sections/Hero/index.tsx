@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { alpha } from "@mui/material";
 import colors from "@/theme/colors";
-import LinkButton from "@/components/common/LinkButton";
+import LinkButton from "@/components/common/Buttons/LinkButton";
 
 interface ButtonProps {
 	text: string;

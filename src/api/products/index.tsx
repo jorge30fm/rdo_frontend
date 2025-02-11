@@ -52,7 +52,6 @@ const fetchProducts = async (
 		const url = `${BASE_URL}/shop/products/${
 			queryString ? `?${queryString}` : ""
 		}`;
-		console.log(url);
 
 		// Make the API call
 		const response = await fetch(url, {
@@ -119,4 +118,93 @@ const fetchCategories = async () => {
 	}
 };
 
-export { fetchProducts, fetchProductDetails, fetchCategories };
+/**
+ * Fetches the four most recently uploaded products.
+ * @returns {Promise<any>} - The fetched recent products data.
+ */
+const fetchRecentProducts = async () => {
+	try {
+		// Construct the URL for fetching recent products
+		const url = `${BASE_URL}/shop/products/?recent=true`;
+
+		// Make the API call
+		const response = await fetch(url, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error("Error fetching recent products:", error);
+		throw error;
+	}
+};
+
+/**
+ * Updates the quantity of a specific product in the database.
+ * @param {string} productId - The ID of the product to update.
+ * @param {number} newQuantity - The new quantity value.
+ * @returns {Promise<any>} - The updated product data.
+ */
+const updateProductQuantity = async (
+	productId: string,
+	newQuantity: number
+) => {
+	try {
+		const response = await fetch(`${BASE_URL}/shop/products/${productId}/`, {
+			method: "PATCH", // ✅ Use PATCH to update only specific fields
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ quantity: newQuantity }),
+		});
+
+		if (!response.ok) {
+			const errorText = await response.text();
+			throw new Error(
+				`Failed to update product quantity. Status: ${response.status}. ${errorText}`
+			);
+		}
+
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error("❌ Error updating product quantity:", error);
+		return null;
+	}
+};
+
+const checkIfIsInStock = async (
+	productId: string | number,
+	quantity: number
+) => {
+	try {
+		const response = await fetch(
+			`${BASE_URL}/shop/products/${productId}/stock/?quantity=${quantity}`
+		);
+		const data = await response.json();
+		if (!response.ok) {
+			throw new Error(data.error || `Error: ${response.status}`);
+		}
+		return data;
+	} catch (error) {
+		console.error("Error checking product stock:", error);
+		return null;
+	}
+};
+
+export {
+	fetchProducts,
+	fetchProductDetails,
+	fetchCategories,
+	fetchRecentProducts,
+	updateProductQuantity,
+	checkIfIsInStock,
+};

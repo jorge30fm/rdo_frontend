@@ -22,10 +22,12 @@ import {
 	clearCart,
 	updateCartItemQuantity,
 	removeItemFromCart,
+	fetchAndUpdateCart,
 } from "@/GlobalRedux/features/shoppingCartSlice";
-import { RootState } from "@/GlobalRedux/store";
+import { RootState, AppDispatch } from "@/GlobalRedux/store";
 import { useRouter } from "next/navigation";
 import colors from "@/theme/colors";
+import { useEffect } from "react";
 
 interface ShoppingCartMenuProps {
 	isOpen: boolean;
@@ -36,8 +38,13 @@ const ShoppingCartMenu: React.FC<ShoppingCartMenuProps> = ({
 	isOpen,
 	onClose,
 }) => {
-	const dispatch = useDispatch();
+	const dispatch: AppDispatch = useDispatch();
 	const router = useRouter();
+
+	useEffect(() => {
+		dispatch(fetchAndUpdateCart());
+	}, [dispatch]);
+
 	const cartItems = useSelector((state: RootState) => state.cart.items);
 	const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
 
@@ -48,13 +55,13 @@ const ShoppingCartMenu: React.FC<ShoppingCartMenuProps> = ({
 	const handleQuantityChange = (id: string | number, quantity: number) => {
 		const product = cartItems.find((item) => item.id === id);
 		if (product && quantity > 0 && quantity <= product.stockQuantity) {
-            dispatch(updateCartItemQuantity({ id, quantity }));
-        }
+			dispatch(updateCartItemQuantity({ id, quantity }));
+		}
 	};
 
 	const handleCheckout = () => {
 		onClose();
-		router.push("/checkout");
+		router.push("/Checkout");
 	};
 
 	return (

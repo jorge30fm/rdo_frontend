@@ -1,44 +1,31 @@
+"use client";
 import { Box, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
 import { ProductCard } from "@/components";
+import { fetchRecentProducts } from "@/api/products";
 
-const recentAdditionsContent = [
-	{
-		id: 1,
-		image: "/images/roldanOriginals/girl2.jpg",
-		name: "Floral Reverie",
-		price: 250,
-		buttonType: "details" as const,
-	},
-	{
-		id: 2,
-		image: "/images/roldanOriginals/child.jpg",
-		name: "Radiant Innocence",
-		price: 250,
-		buttonType: "details" as const,
-	},
-	{
-		id: 3,
-		image: "/images/roldanOriginals/horse.jpg",
-		name: "Unbridled Spirit",
-		price: 250,
-		buttonType: "details" as const,
-	},
-	{
-		id: 4,
-		image: "/images/roldanOriginals/nature.jpg",
-		name: "Nature's Embrace",
-		price: 250,
-		buttonType: "details" as const,
-	},
-];
+interface Product {
+	id: number;
+	product_images: { image: string }[];
+	name: string;
+	price: number;
+}
 
 const RecentAdditions = () => {
+	const [recentAdditions, setRecentAdditions] = useState<Product[]>([]);
+
+	useEffect(() => {
+		fetchRecentProducts().then((data) => {
+			setRecentAdditions(data);
+		});
+	}, []);
+
 	return (
-		<Box sx={{py:8}}>
+		<Box sx={{ py: 8 }}>
 			<Typography
 				variant="h2"
 				textAlign="center"
-				sx={{mb:4}}
+				sx={{ mb: 4 }}
 			>
 				Recent Additions
 			</Typography>
@@ -50,10 +37,14 @@ const RecentAdditions = () => {
 					justifyContent: "center",
 				}}
 			>
-				{recentAdditionsContent.map((product, index) => (
+				{recentAdditions.map((product, index) => (
 					<ProductCard
 						key={index}
-						{...product}
+						id={product.id}
+						image={product.product_images[0].image}
+						name={product.name}
+						price={product.price}
+						buttonType={"details"}
 					/>
 				))}
 			</Box>

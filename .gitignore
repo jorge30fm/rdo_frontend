@@ -9,10 +9,10 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-
+tmp
 # testing
 /coverage
-
+anchor.toml
 # next.js
 /.next/
 /out/

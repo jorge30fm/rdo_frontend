@@ -9,6 +9,7 @@ import {
 	Breadcrumb,
 	ProductCard,
 	FilterPanel,
+	RecentAdditions,
 } from "@/components";
 import { MobileFilterPanel } from "@/components/pages/Shop/FilterPanel";
 // theme
@@ -112,7 +113,9 @@ const ProductsPage = memo(function ProductsPage() {
 	}, [dispatch, selectedFilters, search]);
 
 	// Redux State
-	const products = useSelector((state: RootState) => state.products.products as Product[]);
+	const products = useSelector(
+		(state: RootState) => state.products.products as Product[]
+	);
 	const filters = useSelector((state: RootState) => state.filters.filters);
 
 	// Handlers
@@ -131,10 +134,7 @@ const ProductsPage = memo(function ProductsPage() {
 		updateSearchQuery(searchValue, dispatch);
 	}, [dispatch, searchValue]);
 
-	useEffect(() => {
-		console.log(search);
-	}, [search]);
-
+	
 
 	const debouncedUpdateSearch = useCallback(
 		debounce(function (value: string) {
@@ -143,10 +143,10 @@ const ProductsPage = memo(function ProductsPage() {
 		[dispatch]
 	);
 
-    useEffect(() => {
-        // Trigger debounced function whenever searchValue changes
-        debouncedUpdateSearch(searchValue);
-    }, [searchValue, debouncedUpdateSearch]);
+	useEffect(() => {
+		// Trigger debounced function whenever searchValue changes
+		debouncedUpdateSearch(searchValue);
+	}, [searchValue, debouncedUpdateSearch]);
 
 	return (
 		<Box>
@@ -228,6 +228,9 @@ const ProductsPage = memo(function ProductsPage() {
 
 			{/* Call to Action */}
 			<CallToAction {...callToActionContent} />
+
+			{/* Recent Additions */}
+			<RecentAdditions />
 
 			{/* Reviews Section */}
 			<Box sx={{ background: colors.secondary, py: "4rem" }}>

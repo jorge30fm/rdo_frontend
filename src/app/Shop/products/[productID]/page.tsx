@@ -26,6 +26,7 @@ interface Product {
 	material: string;
 	created_at: string;
 	updated_at: string;
+	quantity: number;
 	categories: string[];
 	tags: string[];
 	keywords: string;
