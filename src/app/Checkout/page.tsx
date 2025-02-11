@@ -11,7 +11,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeItemFromCart } from "@/GlobalRedux/features/shoppingCartSlice";
 import { useEffect, useState } from "react";
 import CartSummary from "@/components/pages/Shop/CheckoutCartSummary";
-
 if (!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
 	throw new Error("NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY is not defined");
 }
@@ -40,6 +39,7 @@ const CheckoutPage = () => {
 
 	// Ensure `cartItems` & `totalPrice` always have a default value
 	const cartItems = useSelector((state: RootState) => state.cart.items) || [];
+
 	const totalPrice =
 		useSelector((state: RootState) => state.cart.totalPrice) || 0;
 	// Move `amount` into a useState to prevent SSR mismatches
@@ -77,8 +77,15 @@ const CheckoutPage = () => {
 				cartItems,
 				totalPrice,
 			});
+		} else if (cartItems.length === 0 && purchasedItems.length === 0) {
+			setCartSummaryData({
+				cartItems,
+				totalPrice,
+			});
 		}
 	}, [purchasedItems, cartItems, purchaseTotal, totalPrice]);
+
+	
 
 	return (
 		<Box sx={{ padding: 4 }}>

@@ -21,6 +21,10 @@ interface ShoppingCartState {
 
 // Helper Functions for Local Storage
 const loadFromLocalStorage = (): ShoppingCartState => {
+	if (typeof window === "undefined") {
+        return { items: [], totalQuantity: 0, totalPrice: 0 }; // Prevent SSR errors
+    }
+
 	try {
 		const storedData = localStorage.getItem("shoppingCart");
 		if (storedData) {
